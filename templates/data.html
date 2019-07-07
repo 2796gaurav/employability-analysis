@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Employability Analysis</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" type="text/css" href="/static/s.css">
+     <link rel="stylesheet" type="text/css" href="/static/animate.css">
+     <link rel="stylesheet" type="text/css" href="/static/bttn.min.css">
+   
+   
+   
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+     <style>
+     input[type="radio"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
+
+div#load_screen{
+  background: #000;
+  opacity: 1;
+  position: fixed;
+    z-index:10;
+  top: 0px;
+  width: 100%;
+  height: 1600px;
+}
+div#load_screen > div#loading{
+  color:#FFF;
+  width:120px;
+  height:24px;
+  margin: 300px auto;
+}
+</style>
+  </head>
+  <body>
+     <div id="load_screen"><div id="loading">loading document</div></div>
+
+   
+    	<!-- nav-->
+  	<nav>
+  <ul>
+    <li class="animated fadeInUp">
+      <a href="#" style="font-size: 25px;">Home</a>
+    </li>
+    <li class="animated fadeInUp">
+      <a href="#" style="font-size: 25px;">About</a>
+    </li>
+    <li class="animated fadeInUp">
+      <a href="#" style="font-size: 25px;">Services</a>
+    </li>
+    <li class="animated fadeInUp">
+      <a href="#" style="font-size: 25px;">Contact</a>
+    </li>
+
+    <li>
+    	
+      <button class="button hvr-outline-in animated fadeInUp" style="position: absolute;right: 200px;top: 10px;background-color: black;color: white;"><a href="{{ url_for('logout') }}" style="color: white;padding: 0px;">Logout</a></button>
+    </li>
+    <li>
+     
+    </li>
+  </ul>
+</nav>
+
+<!--nav-->
+            
+     
+    
+
+
+    
+    <section class="content">
+      <article>
+       
+        
+      
+       <h1 class="animated fadeInUp">Please enter your details</h1>
+       
+       
+        <div class="container animated fadeInUp">
+        <form method="post" role="form" action="http://localhost:5000/result">
+ 
+
+    <p>{{error}}</p>
+    <p>{{result}}</p>
+   
+    <label for="branch"><b style="font-size: 24px">branch</b></label>
+    <p style="font-size: 14px"> 0 for INFT, 1 for CMPN, 2 for ETRX,3 for EXTC, 4 for BIOM.</p>
+    <input type="text" placeholder="enter data" name="branch" value="{{request.form.branch}}" required>
+
+    <label for="ssc"><b style="font-size: 24px">ssc</b></label>
+    <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" placeholder="enter data" name="ssc" value="{{request.form.ssc}}" required>
+
+    <label for="hsc"><b style="font-size: 24px">hsc</b></label>
+    <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" placeholder="enter data" name="hsc" required>
+
+    <label for="sem1"><b style="font-size: 24px">sem1</b></label>
+    <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" placeholder="enter data" name="sem1" value="{{request.form.sem1}}" required>
+
+    <label for="sem2"><b style="font-size: 24px">sem2</b></label>
+    <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" placeholder="enter data" name="sem2" value="{{request.form.sem2}}" required>
+
+    <label for="sem3"><b style="font-size: 24px">sem3</b></label>
+    <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" placeholder="enter data" name="sem3" value="{{request.form.sem3}}"required>
+
+    <label for="sem4"><b style="font-size: 24px">sem4</b></label>
+    <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" value="{{request.form.sem4}}"placeholder="enter data" name="sem4" required>
+
+   
+
+    <label for="sem5"><b style="font-size: 24px">sem5</b></label>
+    <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" value="{{request.form.sem5}}"placeholder="enter data" name="sem5" required>
+
+    
+
+    <label for="sem6"><b style="font-size: 24px">sem6</b></label>
+    <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" value="{{request.form.sem6}}"placeholder="enter data" name="sem6" required>
+
+    <label for="kt"><b style="font-size: 24px">kt</b></label>
+    <p style="font-size: 14px">Enter no. of Live KT's.</p>
+    <input type="text" value="{{request.form.kt}}"placeholder="enter data" name="kt" required>
+
+      <label for="dkt"><b style="font-size: 24px">dead kt</b></label>
+      <p style="font-size: 14px">Enter no. of dead KT's.</p>
+    <input type="text"  value="{{request.form.dkt}}" placeholder="enter data" name="dkt" required>
+
+      <label for="total"><b style="font-size: 24px">total</b></label>
+      <p style="font-size: 14px">Percentages ranges from 35 to 100.</p>
+    <input type="text" placeholder="enter data" name="total" value="{{request.form.total}}" required>
+
+    <label for="extraversion"><b style="font-size: 24px">Extraversion score</b></label>
+    <p style="font-size: 14px">score ranges from 0 to 5.</p>
+    <input type="text" placeholder="enter score" name="extraversion" value="{{request.form.extraversion}}" required>
+
+    <label for="agreeableness"><b style="font-size: 24px">Agreeableness score</b></label>
+    <p style="font-size: 14px">score ranges from 0 to 5.</p>
+    <input type="text" placeholder="enter score" name="agreeableness" value="{{request.form.agreeableness}}" required>
+
+    <label for="openness"><b style="font-size: 24px">Openness score</b></label>
+    <p style="font-size: 14px">score ranges from 0 to 5.</p>
+    <input type="text" placeholder="enter score" name="openness" value="{{request.form.openness}}" required>
+
+    <label for="conscientiousness"><b style="font-size: 24px">Conscientiousness score</b></label>
+    <p style="font-size: 14px">score ranges from 0 to 5.</p>
+    <input type="text" placeholder="enter score" name="conscientiousness" value="{{request.form.conscientiousness}}" required>
+
+    <label for="neuroticism"><b style="font-size: 24px">Neuroticism score</b></label>
+    <p style="font-size: 14px">score ranges from 0 to 5.</p>
+    <input type="text" placeholder="enter score" name="neuroticism" value="{{request.form.neuroticism}}" required>
+    <hr><hr>
+
+
+    <label for="one"><b style="font-size: 24px">1. Am the life of the party.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="one" value="1" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="one" value="2" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="one" value="3" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="one" value="4" > Moderately Accurate<br>
+     <input type="radio" name="one" value="5" > Very Accurate
+
+
+       <label for="two"><b style="font-size: 24px">2. Feel little concern for others.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="two" value="{{request.form.two}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="two" value="{{request.form.two}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="two" value="{{request.form.two}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="two" value="{{request.form.two}}" > Moderately Accurate<br>
+     <input type="radio" name="two" value="{{request.form.two}}" > Very Accurate
+
+
+
+
+       <label for="three"><b style="font-size: 24px">3. Am always prepared.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="three" value="{{request.form.three}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="three" value="{{request.form.three}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="three" value="{{request.form.three}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="three" value="{{request.form.three}}" > Moderately Accurate<br>
+     <input type="radio" name="three" value="{{request.form.three}}" > Very Accurate
+
+       <label for="four"><b style="font-size: 24px">4. Get stressed out easily.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="four" value="{{request.form.four}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="four" value="{{request.form.four}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="four" value="{{request.form.four}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="four" value="{{request.form.four}}" > Moderately Accurate<br>
+     <input type="radio" name="four" value="{{request.form.four}}" > Very Accurate
+
+       <label for="five"><b style="font-size: 24px">5. Have a rich vocabulary.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="five" value="{{request.form.five}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="five" value="{{request.form.five}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="five" value="{{request.form.five}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="five" value="{{request.form.five}}" > Moderately Accurate<br>
+     <input type="radio" name="five" value="{{request.form.five}}" > Very Accurate
+
+       <label for="six"><b style="font-size: 24px">6. Don't talk a lot.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="six" value="{{request.form.six}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="six" value="{{request.form.six}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="six" value="{{request.form.six}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="six" value="{{request.form.six}}" > Moderately Accurate<br>
+     <input type="radio" name="six" value="{{request.form.six}}" > Very Accurate
+
+       <label for="seven"><b style="font-size: 24px">7. Am interested in people.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="seven" value="{{request.form.seven}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="seven" value="{{request.form.seven}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="seven" value="{{request.form.seven}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="seven" value="{{request.form.seven}}" > Moderately Accurate<br>
+     <input type="radio" name="seven" value="{{request.form.seven}}" > Very Accurate
+
+       <label for="eight"><b style="font-size: 24px">8. Leave my belongings around.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="eight" value="{{request.form.eight}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eight" value="{{request.form.eight}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eight" value="{{request.form.eight}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eight" value="{{request.form.eight}}" > Moderately Accurate<br>
+     <input type="radio" name="eight" value="{{request.form.eight}}" > Very Accurate
+
+       <label for="nine"><b style="font-size: 24px">9. Am relaxed most of the time.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="nine" value="{{request.form.nine}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="nine" value="{{request.form.nine}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="nine" value="{{request.form.nine}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="nine" value="{{request.form.nine}}" > Moderately Accurate<br>
+     <input type="radio" name="nine" value="{{request.form.nine}}" > Very Accurate
+
+       <label for="ten"><b style="font-size: 24px">10. Have difficulty understanding abstract ideas.</b></label>
+     &nbsp;&nbsp;<input type="radio" name="ten" value="{{request.form.ten}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="ten" value="{{request.form.ten}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="ten" value="{{request.form.ten}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="ten" value="{{request.form.ten}}" > Moderately Accurate<br>
+     <input type="radio" name="ten" value="{{request.form.ten}}" > Very Accurate
+
+       <label for="eleven"><b style="font-size: 24px">11. Feel comfortable around people.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="eleven" value="{{request.form.eleven}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eleven" value="{{request.form.eleven}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eleven" value="{{request.form.eleven}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eleven" value="{{request.form.eleven}}" > Moderately Accurate<br>
+     <input type="radio" name="eleven" value="{{request.form.eleven}}" > Very Accurate
+
+       <label for="twelve"><b style="font-size: 24px">12. Insult people.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twelve" value="{{request.form.twelve}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twelve" value="{{request.form.twelve}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twelve" value="{{request.form.twelve}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twelve" value="{{request.form.twelve}}" > Moderately Accurate<br>
+     <input type="radio" name="twelve" value="{{request.form.twelve}}" > Very Accurate
+
+       <label for="thirteen"><b style="font-size: 24px">13. Pay attention to details.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirteen" value="{{request.form.thirteen}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirteen" value="{{request.form.thirteen}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirteen" value="{{request.form.thirteen}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirteen" value="{{request.form.thirteen}}" > Moderately Accurate<br>
+     <input type="radio" name="thirteen" value="{{request.form.thirteen}}" > Very Accurate
+
+       <label for="fourteen"><b style="font-size: 24px">14. Worry about things.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourteen" value="{{request.form.fourteen}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourteen" value="{{request.form.fourteen}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourteen" value="{{request.form.fourteen}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourteen" value="{{request.form.fourteen}}" > Moderately Accurate<br>
+     <input type="radio" name="fourteen" value="{{request.form.fourteen}}" > Very Accurate
+
+       <label for="fifeteen"><b style="font-size: 24px">15. Have a vivid imagination.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fifeteen" value="{{request.form.fifeteen}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fifeteen" value="{{request.form.fifeteen}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fifeteen" value="{{request.form.fifeteen}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fifeteen" value="{{request.form.fifeteen}}" > Moderately Accurate<br>
+     <input type="radio" name="fifeteen" value="{{request.form.fifeteen}}" > Very Accurate
+
+       <label for="sixeteen"><b style="font-size: 24px">16. Keep in the background.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="sixeteen" value="{{request.form.sixeteen}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sixeteen" value="{{request.form.sixeteen}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sixeteen" value="{{request.form.sixeteen}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sixeteen" value="{{request.form.sixeteen}}" > Moderately Accurate<br>
+     <input type="radio" name="sixeteen" value="{{request.form.sixeteen}}" > Very Accurate
+
+       <label for="seventeen"><b style="font-size: 24px">17. Sympathize with others' feelings.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="seventeen" value="{{request.form.seventeen}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="seventeen" value="{{request.form.seventeen}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="seventeen" value="{{request.form.seventeen}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="seventeen" value="{{request.form.seventeen}}" > Moderately Accurate<br>
+     <input type="radio" name="seventeen" value="{{request.form.seventeen}}" > Very Accurate
+
+       <label for="eighteen"><b style="font-size: 24px">18. Make a mess of things.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="eighteen" value="{{request.form.eighteen}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eighteen" value="{{request.form.eighteen}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eighteen" value="{{request.form.eighteen}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="eighteen" value="{{request.form.eighteen}}" > Moderately Accurate<br>
+     <input type="radio" name="eighteen" value="{{request.form.eighteen}}" > Very Accurate
+
+       <label for="nineteen"><b nineteenstyle="font-size: 24px">19. Seldom feel blue.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="nineteen" value="{{request.form.nineteen}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="nineteen" value="{{request.form.nineteen}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="nineteen" value="{{request.form.nineteen}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="nineteen" value="{{request.form.nineteen}}" > Moderately Accurate<br>
+     <input type="radio" name="nineteen" value="{{request.form.nineteen}}" > Very Accurate
+
+       <label for="twenty"><b style="font-size: 24px">20. Am not interested in abstract ideas.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twenty" value="{{request.form.twenty}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twenty" value="{{request.form.twenty}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twenty" value="{{request.form.twenty}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twenty" value="{{request.form.twenty}}" > Moderately Accurate<br>
+     <input type="radio" name="twenty" value="{{request.form.twenty}}" > Very Accurate
+
+       <label for="twentyone"><b style="font-size: 24px">21. Start conversations.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentyone" value="{{request.form.twentyone}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyone" value="{{request.form.twentyone}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyone" value="{{request.form.twentyone}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyone" value="{{request.form.twentyone}}" > Moderately Accurate<br>
+     <input type="radio" name="twentyone" value="{{request.form.twentyone}}" > Very Accurate
+
+       <label for="twentytwo"><b style="font-size: 24px">22. Am not interested in other people's problems.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentytwo" value="{{request.form.twentytwo}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentytwo" value="{{request.form.twentytwo}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentytwo" value="{{request.form.twentytwo}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentytwo" value="{{request.form.twentytwo}}" > Moderately Accurate<br>
+     <input type="radio" name="twentytwo" value="{{request.form.twentytwo}}" > Very Accurate
+
+       <label for="twentythree"><b style="font-size: 24px">23. Get chores done right away.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentythree" value="{{request.form.twentythree}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentythree" value="{{request.form.twentythree}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentythree" value="{{request.form.twentythree}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentythree" value="{{request.form.twentythree}}" > Moderately Accurate<br>
+     <input type="radio" name="twentythree" value="{{request.form.twentythree}}" > Very Accurate
+
+       <label for="twentyfour"><b style="font-size: 24px">24. Am easily disturbed.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentyfour" value="{{request.form.twentyfour}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyfour" value="{{request.form.twentyfour}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyfour" value="{{request.form.twentyfour}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyfour" value="{{request.form.twentyfour}}" > Moderately Accurate<br>
+     <input type="radio" name="twentyfour" value="{{request.form.twentyfour}}" > Very Accurate
+
+       <label for="twentyfive"><b style="font-size: 24px">25. Have excellent ideas.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentyfive" value="{{request.form.twentyfive}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyfive" value="{{request.form.twentyfive}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyfive" value="{{request.form.twentyfive}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyfive" value="{{request.form.twentyfive}}" > Moderately Accurate<br>
+     <input type="radio" name="twentyfive" value="{{request.form.twentyfive}}" > Very Accurate
+
+       <label for="twentysix"><b style="font-size: 24px">26. Have little to say.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentysix" value="{{request.form.twentysix}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentysix" value="{{request.form.twentysix}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentysix" value="{{request.form.twentysix}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentysix" value="{{request.form.twentysix}}" > Moderately Accurate<br>
+     <input type="radio" name="twentysix" value="{{request.form.twentysix}}" > Very Accurate
+
+       <label for="twentyseven"><b style="font-size: 24px">27. Have a soft heart.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentyseven" value="{{request.form.twentyseven}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyseven" value="{{request.form.twentyseven}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyseven" value="{{request.form.twentyseven}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyseven" value="{{request.form.twentyseven}}" > Moderately Accurate<br>
+     <input type="radio" name="twentyseven" value="{{request.form.twentyseven}}" > Very Accurate
+
+       <label for="twentyeight"><b style="font-size: 24px">28. Often forget to put things back in their proper place.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentyeight" value="{{request.form.twentyeight}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyeight" value="{{request.form.twentyeight}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyeight" value="{{request.form.twentyeight}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentyeight" value="{{request.form.twentyeight}}" > Moderately Accurate<br>
+     <input type="radio" name="twentyeight" value="{{request.form.twentyeight}}" > Very Accurate
+
+       <label for="twentynine"><b style="font-size: 24px">29. Get upset easily.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="twentynine" value="{{request.form.twentynine}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentynine" value="{{request.form.twentynine}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentynine" value="{{request.form.twentynine}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="twentynine" value="{{request.form.twentynine}}" > Moderately Accurate<br>
+     <input type="radio" name="twentynine" value="{{request.form.twentynine}}" > Very Accurate
+
+       <label for="thirty"><b style="font-size: 24px">30. Do not have a good imagination.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirty" value="{{request.form.thirty}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirty" value="{{request.form.thirty}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirty" value="{{request.form.thirty}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirty" value="{{request.form.thirty}}" > Moderately Accurate<br>
+     <input type="radio" name="thirty" value="{{request.form.thirty}}" > Very Accurate
+
+       <label for="thirtyone"><b style="font-size: 24px">31. Talk to a lot of different people at parties.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtyone" value="{{request.form.thirtyone}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyone" value="{{request.form.thirtyone}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyone" value="{{request.form.thirtyone}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyone" value="{{request.form.thirtyone}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtyone" value="{{request.form.thirtyone}}" > Very Accurate
+
+       <label for="thirtytwo"><b style="font-size: 24px">32. Am not really interested in others.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtytwo" value="{{request.form.thirtytwo}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtytwo" value="{{request.form.thirtytwo}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtytwo" value="{{request.form.thirtytwo}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtytwo" value="{{request.form.thirtytwo}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtytwo" value="{{request.form.thirtytwo}}" > Very Accurate
+
+       <label for="thirtythree"><b style="font-size: 24px">33. Like order.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtythree" value="{{request.form.thirtythree}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtythree" value="{{request.form.thirtythree}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtythree" value="{{request.form.thirtythree}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtythree" value="{{request.form.thirtythree}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtythree" value="{{request.form.thirtythree}}" > Very Accurate
+
+       <label for="thirtyfour"><b style="font-size: 24px">34. Change my mood a lot.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtyfour" value="{{request.form.thirtyfour}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyfour" value="{{request.form.thirtyfour}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyfour" value="{{request.form.thirtyfour}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyfour" value="{{request.form.thirtyfour}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtyfour" value="{{request.form.thirtyfour}}" > Very Accurate
+
+       <label for="thirtyfive"><b style="font-size: 24px">35. Am quick to understand things.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtyfive" value="{{request.form.thirtyfive}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyfive" value="{{request.form.thirtyfive}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyfive" value="{{request.form.thirtyfive}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyfive" value="{{request.form.thirtyfive}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtyfive" value="{{request.form.thirtyfive}}" > Very Accurate
+
+       <label for="thirtysix"><b style="font-size: 24px">36. Don't like to draw attention to myself.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtysix" value="{{request.form.thirtysix}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtysix" value="{{request.form.thirtysix}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtysix" value="{{request.form.thirtysix}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtysix" value="{{request.form.thirtysix}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtysix" value="{{request.form.thirtysix}}" > Very Accurate
+
+       <label for="thirtyseven"><b style="font-size: 24px">37. Take time out for others.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtyseven" value="{{request.form.thirtyseven}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyseven" value="{{request.form.thirtyseven}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyseven" value="{{request.form.thirtyseven}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyseven" value="{{request.form.thirtyseven}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtyseven" value="{{request.form.thirtyseven}}" > Very Accurate
+
+       <label for="thirtyeight"><b style="font-size: 24px">38. Shirk my duties.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtyeight" value="{{request.form.thirtyeight}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyeight" value="{{request.form.thirtyeight}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyeight" value="{{request.form.thirtyeight}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtyeight" value="{{request.form.thirtyeight}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtyeight" value="{{request.form.thirtyeight}}" > Very Accurate
+
+       <label for="thirtynine"><b style="font-size: 24px">39. Have frequent mood swings.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="thirtynine" value="{{request.form.thirtynine}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtynine" value="{{request.form.thirtynine}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtynine" value="{{request.form.thirtynine}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="thirtynine" value="{{request.form.thirtynine}}" > Moderately Accurate<br>
+     <input type="radio" name="thirtynine" value="{{request.form.thirtynine}}" > Very Accurate
+
+       <label for="fourty"><b style="font-size: 24px">40. Use difficult words.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourty" value="{{request.form.fourty}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourty" value="{{request.form.fourty}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourty" value="{{request.form.fourty}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourty" value="{{request.form.fourty}}" > Moderately Accurate<br>
+     <input type="radio" name="fourty" value="{{request.form.fourty}}" > Very Accurate
+
+       <label for="fourtyone"><b style="font-size: 24px">41. Don't mind being the center of attention.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtyone" value="{{request.form.fourtyone}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyone" value="{{request.form.fourtyone}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyone" value="{{request.form.fourtyone}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyone" value="{{request.form.fourtyone}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtyone" value="{{request.form.fourtyone}}" > Very Accurate
+
+       <label for="fourtytwo"><b style="font-size: 24px">42. Feel others' emotions.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtytwo" value="{{request.form.fourtytwo}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtytwo" value="{{request.form.fourtytwo}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtytwo" value="{{request.form.fourtytwo}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtytwo" value="{{request.form.fourtytwo}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtytwo" value="{{request.form.fourtytwo}}" > Very Accurate
+
+       <label for="fourtythree"><b style="font-size: 24px">43. Follow a schedule.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtythree" value="{{request.form.fourtythree}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtythree" value="{{request.form.fourtythree}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtythree" value="{{request.form.fourtythree}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtythree" value="{{request.form.fourtythree}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtythree" value="{{request.form.fourtythree}}" > Very Accurate
+
+       <label for="fourtyfour"><b style="font-size: 24px">44. Get irritated easily.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtyfour" value="{{request.form.fourtyfour}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyfour" value="{{request.form.fourtyfour}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyfour" value="{{request.form.fourtyfour}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyfour" value="{{request.form.fourtyfour}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtyfour" value="{{request.form.fourtyfour}}" > Very Accurate
+
+       <label for="fourtyfive"><b style="font-size: 24px">45. Spend time reflecting on things.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtyfive" value="{{request.form.fourtyfive}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyfive" value="{{request.form.fourtyfive}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyfive" value="{{request.form.fourtyfive}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyfive" value="{{request.form.fourtyfive}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtyfive" value="{{request.form.fourtyfive}}" > Very Accurate
+
+       <label for="fourtysix"><b style="font-size: 24px">46. Am quiet around strangers.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtysix" value="{{request.form.fourtysix}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtysix" value="{{request.form.fourtysix}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtysix" value="{{request.form.fourtysix}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtysix" value="{{request.form.fourtysix}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtysix" value="{{request.form.fourtysix}}" > Very Accurate
+
+       <label for="fourtyseven"><b style="font-size: 24px">47. Make people feel at ease.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtyseven" value="{{request.form.fourtyseven}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyseven" value="{{request.form.fourtyseven}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyseven" value="{{request.form.fourtyseven}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyseven" value="{{request.form.fourtyseven}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtyseven" value="{{request.form.fourtyseven}}" > Very Accurate
+
+       <label for="fourtyeight"><b style="font-size: 24px">48. Make people feel at ease.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtyeight" value="{{request.form.fourtyeight}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyeight" value="{{request.form.fourtyeight}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyeight" value="{{request.form.fourtyeight}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtyeight" value="{{request.form.fourtyeight}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtyeight" value="{{request.form.fourtyeight}}" > Very Accurate
+
+       <label for="fourtynine"><b style="font-size: 24px">49. Often feel blue.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fourtynine" value="{{request.form.fourtynine}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtynine" value="{{request.form.fourtynine}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtynine" value="{{request.form.fourtynine}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fourtynine" value="{{request.form.fourtynine}}" > Moderately Accurate<br>
+     <input type="radio" name="fourtynine" value="{{request.form.fourtynine}}" > Very Accurate
+
+       <label for="fifety"><b style="font-size: 24px">50. Am full of ideas.</b></label>
+
+     &nbsp;&nbsp;<input type="radio" name="fifety" value="{{request.form.fifety}}" > Very Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fifety" value="{{request.form.fifety}}" > Moderately Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fifety" value="{{request.form.fifety}}" > Neither Accurate Nor Inaccurate<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="fifety" value="{{request.form.fifety}}" > Moderately Accurate<br>
+     <input type="radio" name="fifety" value="{{request.form.fifety}}" > Very Accurate
+
+       
+    
+
+
+
+
+
+
+
+    
+        <br>
+    <button type="submit" name="submit" id="submit">submit</button>
+    
+  
+
+  
+      </div>
+</form>
+      </article>
+    </section>
+        
+        
+      </article>
+    </section>
+    <footer>
+      <div class="row footer-stuff">
+
+        <div class="columns three" style="padding-top: 100px;">
+
+          <strong>FIND US ON</strong>
+          <ul>
+            <li><a href="">Twitter</a></li>
+            <li><a href="">Facebook</a></li>
+            <li><a href="">Pinterest</a></li>
+            <li><a href="">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="columns three" style="padding-top: 100px;""><strong>Employability analysis</strong>
+          <ul>
+            <li><a href="">home</a></li>
+            <li><a href="">about</a></li>
+            <li><a href="">services</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+        <div class="columns six" style="padding-top: 100px;"">
+          <p><strong>Sign Up for the new updates</strong></p>
+          <form class="row">
+            <div class="columns eight">
+              <input type="email" placeholder="Your Email" class="u-full-width">
+            </div>
+            <div class="columns four">
+              <input type="submit" class="button-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <script src="/static/jquery-2.1.3.min.js"></script>
+    <script src="/static/functions.js"></script>
+
+<script>
+window.addEventListener("load", function(){
+  var load_screen = document.getElementById("load_screen");
+  document.body.removeChild(load_screen);
+});
+</script>
+    
+  </body>
+</html>

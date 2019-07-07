@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Employability Analysis</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="/static/s.css">
+     <link rel="stylesheet" type="text/css" href="/static/bttn.min.css">
+      <link rel="stylesheet" type="text/css" href="/static/animate.css">
+   
+   
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style type="text/css">
+      
+    </style>
+  </head>
+  <body>
+   
+
+    <header class="bird-box">
+    	<!-- nav-->
+  	<nav>
+  <ul >
+    <li>
+      <a href="#" style="font-size: 25px;" class="animated fadeInUp">Home</a>
+    </li>
+    <li>
+      <a href="#" style="font-size: 25px;" class="animated fadeInUp">About</a>
+    </li>
+    <li>
+      <a href="#" style="font-size: 25px;" class="animated fadeInUp">Services</a>
+    </li>
+    <li>
+      <a href="#" style="font-size: 25px;" class="animated fadeInUp">Contact</a>
+    </li>
+
+    <li>
+    	
+      <button class="button hvr-outline-in animated fadeInUp" style="position: absolute;right: 200px;top: 10px;background-color: #1D3557;color: white;"><a href="{{ url_for('login') }}" style="color: white;padding: 0px;" >Log in</a></button>
+    </li>
+    <li>
+     <button class="button  hvr-outline-in animated fadeInUp" style="position: absolute;right: 40px;top: 10px;background-color: #1D3557;color:white"><a href="{{ url_for('signup') }}" style="color: white;padding: 0px;">Sign Up</a></button>
+    </li>
+  </ul>
+</nav>
+
+<!--nav-->
+            <div class="logo">
+            	<h2 style="text-align: center;color: #F1FAEE" class="animated fadeInUp"><b>Employability Analysis</b></h2>
+            		
+            		<p style="text-align: center;color: #A8DADC" class="animated fadeInUp">
+            			With the help of our assessment tests, <br>you will achieve the qualities that <br>will lead you to your<br> dream job
+
+            			<br><a href="{{ url_for('login') }}" class="button hvr-radial-in animated fadeInUp" style="background-color: #E63946;" >Get started</a>
+            		</p>
+
+            </div>
+      <div class="fore-bird"></div>
+      <div class="fore-bird-two"></div>
+    </header>
+
+
+    
+    <section class="content">
+      <article>
+        <h1>Who we are</h1>
+        <hr>
+        <p><ul>
+          <li><p style="font-size: 20px;">To create an application that would help represent employability as a quantifiable factor.</p></li> 
+          <li><p style="font-size: 20px;">You can know how employable they are in the current competitive scenario.</p></li>
+          <li><p style="font-size: 20px;">We recommend positions and jobs student should pursue and courses or tools to master in that domain.</p></li></ul>
+
+ </p>
+        <hr>
+        
+        <!--
+          <h1>Our Products</h1>
+        <hr>
+        <div class="clothes-pics">
+          <div class="row img-row">
+            <figure class="columns four"><img src="/static/model1.jpg">
+              <figcaption>BlackBird Sweater - <strong>$135</strong></figcaption>
+            </figure>
+            <figure class="columns four"><img src="/static/model2.jpg">
+              <figcaption>BlackBird Trousers - <strong>$135</strong></figcaption>
+            </figure>
+            <figure class="columns four"><img src="/static/model3.jpg">
+              <figcaption>BlackBird Jacket - <strong>$135</strong></figcaption>
+            </figure>
+          </div>
+          <div class="row img-row">
+            <figure class="columns four"><img src="/static/model2.jpg">
+              <figcaption>BlackBird Trousers - <strong>$135</strong></figcaption>
+            </figure>
+            <figure class="columns four"><img src="/static/model3.jpg">
+              <figcaption>BlackBird Jacket - <strong>$135</strong></figcaption>
+            </figure>
+            <figure class="columns four"><img src="/static/model1.jpg">
+              <figcaption>BlackBird Sweater - <strong>$135</strong></figcaption>
+            </figure>
+          </div>
+          <div class="row img-row">
+            <figure class="columns four"><img src="/static/model3.jpg">
+              <figcaption>BlackBird Jacket - <strong>$135</strong></figcaption>
+            </figure>
+            <figure class="columns four"><img src="/static/model1.jpg">
+              <figcaption>BlackBird Sweater - <strong>$135</strong></figcaption>
+            </figure>
+            <figure class="columns four"><img src="/static/model2.jpg">
+              <figcaption>BlackBird Trousers - <strong>$135</strong></figcaption>
+            </figure>
+          </div>
+        </div>
+        <h1>What our Clients say about us</h1>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+        <hr>
+        <div class="large-window">
+          <div class="window-tint">
+            <div class="promo-text">Fall Suits<strong><span>from</span> $99</strong><a href="" class="window-cta">Shop Now</a></div>
+          </div>
+        </div>
+        <h1>Rich History</h1>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+        <hr>
+        <div class="blog-posts row">
+          <div class="post columns four post-1">
+            <h5>Post Title</h5><img src="/static/posts/one.jpg">
+            <p>Incididunt ut labore et dolore magna.</p>
+            <p><a href="" class="button">Read More</a></p>
+          </div>
+          <div class="post columns four post-2">
+            <h5>Post Title</h5><img src="/static/posts/two.jpg">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p><a href="" class="button">Read More</a></p>
+          </div>
+          <div class="post columns four post-3">
+            <h5>Post Title</h5><img src="/static/posts/three.jpg">
+            <p>Duis aute irure dolor in reprehenderit.</p>
+            <p><a href="" class="button">Read More</a></p>
+          </div>
+        -->
+        </div>
+      </article>
+    </section> 
+    <footer>
+      <div class="row footer-stuff">
+
+        <div class="columns three" style="padding-top: 100px;">
+
+          <strong>FIND US ON</strong>
+          <ul>
+            <li><a href="">Twitter</a></li>
+            <li><a href="">Facebook</a></li>
+            <li><a href="">Pinterest</a></li>
+            <li><a href="">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="columns three" style="padding-top: 100px;""><strong>Employability analysis</strong>
+          <ul>
+            <li><a href="">home</a></li>
+            <li><a href="">about</a></li>
+            <li><a href="">services</a></li>
+            <li><a href="">contact</a></li>
+          </ul>
+        </div>
+        <div class="columns six" style="padding-top: 100px;"">
+          <p><strong>Sign Up for the new updates</strong></p>
+          <form class="row">
+            <div class="columns eight">
+              <input type="email" placeholder="Your Email" class="u-full-width">
+            </div>
+            <div class="columns four">
+              <input type="submit" class="button-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/jquery-2.1.3.min.js"></script>
+
+
+
+    <script src="/static/functions.js"></script>
+  </body>
+</html>
